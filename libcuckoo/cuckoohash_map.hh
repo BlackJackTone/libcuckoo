@@ -1217,7 +1217,7 @@ private:
         return pos;
       case failure_table_full:
         // Expand the table and try again, re-grabbing the locks
-        cuckoo_fast_double<TABLE_MODE, automatic_resize>(hp);
+        cuckoo_fast_double<TABLE_MODE, manual_resize>(hp);
         b = snapshot_and_lock_two<TABLE_MODE>(hv);
         break;
       case failure_under_expansion:
